@@ -102,18 +102,17 @@ func formHandler(w http.ResponseWriter, r *http.Request) {
 	}
 	fmt.Fprintf(w, "POST request successful\n")
 	name := r.FormValue("name")
-	link := []string{}
-	link = append(link, r.FormValue("crawl"))
+	link := r.FormValue("crawl")
 	fmt.Fprintf(w, "HI ! %s\n", name)
-	fmt.Fprintf(w, "BASE LINK : %v\n", link[0])
+	fmt.Fprintf(w, "BASE LINK : %v\n", link)
 	fmt.Fprintf(w, "Curling...Please wait\n")
 
 	go func() {
-		queue <- link[0]
+		queue <- link
 	}()
 
 	for href := range queue {
-		if !hasVisited[href] && isSameDomain(href, link[0]) {
+		if !hasVisited[href] && isSameDomain(href, link) {
 			crawlUrl(href, w, r)
 		}
 	}
