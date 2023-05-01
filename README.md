@@ -30,7 +30,7 @@ $ make install
 ```
 ### Option 2: Build from source
 
-This command will build the Timezone CLI binary, named `tmz`. This binary will be created in the root of your project folder.
+This command will build the Web Crawler binary, named `Web_Crawler`. This binary will be created in the root of your project folder.
 
 ```
 $ make build
@@ -46,7 +46,7 @@ OR
 Web_Crawler
 ```
 
-* Second Step: `Paste this url in your browser and fill this form and submit. It will take a while to load an all the links will be generated on the screen`
+* Second Step: `Paste this url in your browser and fill the form and submit. It will take a while to load an all the links will be generated on the screen`
 ```
 http://localhost:8080/form.html
 ```
