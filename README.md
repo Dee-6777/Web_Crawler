@@ -41,7 +41,7 @@ Here is the preview of my server :
 `http://localhost:8080/form.html` (form layout)
 
 ### Generating all the links after the base url is crawled 
-`http://localhost:8080/form.html`
+`http://localhost:8080/form`
 
 ### quit
 Press ` Ctrl + C ` in the terminal to stop the server.
