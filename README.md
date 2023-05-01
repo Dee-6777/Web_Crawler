@@ -39,9 +39,11 @@ Made using html for a simple and smooth user experience!
 Here is the preview of my server :
 ### Starting page of our server 
 `http://localhost:8080/form.html` (form layout)
+![Screenshot from 2023-05-01 08-28-18](https://user-images.githubusercontent.com/73513838/235395539-94ebee98-dbc7-4550-a328-a9437f9b6c2c.png)
 
 ### Generating all the links after the base url is crawled 
 `http://localhost:8080/form`
+![Screenshot from 2023-05-01 08-29-11](https://user-images.githubusercontent.com/73513838/235395560-523d1cc4-f8a0-406a-a472-b944752599bc.png)
 
 ### quit
 Press ` Ctrl + C ` in the terminal to stop the server.
