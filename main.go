@@ -105,7 +105,7 @@ func formHandler(w http.ResponseWriter, r *http.Request) {
 	link := r.FormValue("crawl")
 	fmt.Fprintf(w, "HI ! %s\n", name)
 	fmt.Fprintf(w, "BASE LINK : %v\n", link)
-	fmt.Fprintf(w, "Curling...Please wait\n")
+	fmt.Fprintf(w, "Crawling......Please wait\n")
 
 	go func() {
 		queue <- link
