@@ -36,7 +36,7 @@ This command will build the Web Crawler binary, named `Web_Crawler`. This binary
 $ make build
 ```
 
-### HOW TO USE THIS SERVER? 
+### HOW TO USE THIS SERVER? (WITHOUT DOCKERFILE)
 * First Step: `Start a server at the port :8080 by running this command`
 ```
 go run main.go 
@@ -46,10 +46,24 @@ OR
 Web_Crawler
 ```
 
-* Second Step: `Paste this url in your browser and fill the form and submit. It will take a while to load an all the links will be generated on the screen`
+* Second Step: `Paste this url in your browser and fill the form and submit. It will take a while to load and all the links will be generated on the screen`
 ```
 http://localhost:8080/form.html
 ```
+### HOW TO USE THIS SERVER? (WITH DOCKERFILE)
+* First Step: `Build the dockerfile`
+```
+docker build -t <image-name>
+```
+* Second Step: `Run the dockerfile`
+```
+docker run -d -p 8080:8080 <image name>
+```
+* Third Step: `Paste this url in your browser and fill the form and submit. It will take a while to load and all the links will be generated on the screen`
+```
+http://localhost:8080/form.html
+```
+
 ## UI of my CLI TOOL
 
 Made using html for a simple and smooth user experience!
