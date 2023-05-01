@@ -37,9 +37,11 @@ http://localhost:8080/form.html
 Made using html for a simple and smooth user experience!
 
 Here is the preview of my server :
-### Starting page of our server `http://localhost:8080/form.html` (form layout)
+### Starting page of our server 
+`http://localhost:8080/form.html` (form layout)
 
-### Generating all the links after the base url is crawled `http://localhost:8080/form.html`
+### Generating all the links after the base url is crawled 
+`http://localhost:8080/form.html`
 
 ### quit
 Press ` Ctrl + C ` in the terminal to stop the server.
