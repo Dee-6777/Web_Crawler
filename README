@@ -41,6 +41,5 @@ Made using html for a simple and smooth user experience!
 
 ### Generating all the links after the base url is crawled `http://localhost:8080/form.html`
 
-
 ### quit
 Press ` Ctrl + C ` in the terminal to stop the server.
