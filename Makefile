@@ -19,7 +19,7 @@ run:
 	$(BINARY)
 
 test:
-	go test ./cmd -v
+	go test -v
 
 mod:
 	go mod tidy 
