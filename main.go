@@ -8,15 +8,16 @@ import (
 	"net/url"
 	"os"
 
-	"github.com/steelx/extractlinks"
+	"github.com/steelx/extractlinks" // extractlinks GO package for extracting anchor links from HTML
+	//Extracts all anchor links from a HTML page into an Array of []Link
 )
 
-var (
+var ( // combine all the clients together and declared as a variable
 	config = &tls.Config{
 		InsecureSkipVerify: true,
 	}
 
-	transport = &http.Transport{
+	transport = &http.Transport{ // It is a type of transport a pointer to the http
 		TLSClientConfig: config,
 	}
 
@@ -101,17 +102,18 @@ func formHandler(w http.ResponseWriter, r *http.Request) {
 	}
 	fmt.Fprintf(w, "POST request successful\n")
 	name := r.FormValue("name")
-	link := r.FormValue("crawl")
-
+	link := []string{}
+	link = append(link, r.FormValue("crawl"))
 	fmt.Fprintf(w, "HI ! %s\n", name)
-	fmt.Fprintf(w, "BASE LINK : %s\n", link)
+	fmt.Fprintf(w, "BASE LINK : %v\n", link[0])
 	fmt.Fprintf(w, "Curling...Please wait\n")
+
 	go func() {
-		queue <- link
+		queue <- link[0]
 	}()
 
 	for href := range queue {
-		if !hasVisited[href] && isSameDomain(href, link) {
+		if !hasVisited[href] && isSameDomain(href, link[0]) {
 			crawlUrl(href, w, r)
 		}
 	}
