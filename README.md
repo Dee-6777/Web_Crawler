@@ -19,8 +19,21 @@ The only prerequisite is to have `go1.19.5` installed in the local system!!
 ## GET STARTED 
 
 ### INSTALLATION
+First clone the repository somewhere in your $PATH. A common place would be within your $GOPATH. 
+
+### Option 1: Install binary
+
+Build and copy `Web_Crawler` to your $GOPATH/bin:
+
 ```
-go install github.com/Dee-6777/Web_Crawler
+$ make install
+```
+### Option 2: Build from source
+
+This command will build the Timezone CLI binary, named `tmz`. This binary will be created in the root of your project folder.
+
+```
+$ make build
 ```
 
 ### HOW TO USE THIS SERVER? 
@@ -28,6 +41,11 @@ go install github.com/Dee-6777/Web_Crawler
 ```
 go run main.go 
 ```
+OR 
+```
+Web_Crawler
+```
+
 * Second Step: `Paste this url in your browser and fill this form and submit. It will take a while to load an all the links will be generated on the screen`
 ```
 http://localhost:8080/form.html
