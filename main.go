@@ -51,7 +51,7 @@ func crawlUrl(href string, w http.ResponseWriter, r *http.Request) {
 	}
 	defer response.Body.Close()
 
-	links, err := extractlinks.All(response.Body)
+	links, err := extractlinks.All(response.Body) // extracting all the links from the html body
 	if err != nil {
 		fmt.Println(err)
 		os.Exit(1)
@@ -60,7 +60,7 @@ func crawlUrl(href string, w http.ResponseWriter, r *http.Request) {
 	for _, link := range links {
 		absoluteURL := toFixedUrl(link.Href, href)
 		go func() {
-			queue <- absoluteURL
+			queue <- absoluteURL // queue is used where links are added  in the back, links in the front are used to crawl
 		}()
 	}
 }
@@ -85,14 +85,14 @@ func isSameDomain(href, baseUrl string) bool {
 
 func toFixedUrl(href, base string) string {
 	uri, err := url.Parse(href)
-	if err != nil || uri.Scheme == "mailto" || uri.Scheme == "tel" {
+	if err != nil || uri.Scheme == "mailto" || uri.Scheme == "tel" { // representation of url [scheme:][//[userinfo@]host][/]path[?query][#fragment]
 		return base
 	}
-	baseUrl, err := url.Parse(base)
+	baseUrl, err := url.Parse(base) // Parse parses a url into a URL structure.
 	if err != nil {
 		return ""
 	}
-	uri = baseUrl.ResolveReference(uri)
+	uri = baseUrl.ResolveReference(uri) // will take host from base & path from uri. If it has its own host then it'll do base.Host + uri.Path
 	return uri.String()
 }
 
