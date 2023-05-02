@@ -17,7 +17,7 @@ var ( // combine all the clients together and declared as a variable
 		InsecureSkipVerify: true,
 	}
 
-	transport = &http.Transport{ // It is a type of transport a pointer to the http
+	transport = &http.Transport{
 		TLSClientConfig: config,
 	}
 
@@ -65,6 +65,7 @@ func crawlUrl(href string, w http.ResponseWriter, r *http.Request) {
 	}
 }
 
+// Ensures to crawl in a single domain
 func isSameDomain(href, baseUrl string) bool {
 	uri, err := url.Parse(href)
 	if err != nil {
