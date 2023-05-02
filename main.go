@@ -59,7 +59,7 @@ func crawlUrl(href string, w http.ResponseWriter, r *http.Request) {
 
 	for _, link := range links {
 		absoluteURL := toFixedUrl(link.Href, href)
-		go func() {
+		go func() { // concurrency is used as we're pushing links faster than we're visiting them
 			queue <- absoluteURL // queue is used where links are added  in the back, links in the front are used to crawl
 		}()
 	}
@@ -83,6 +83,7 @@ func isSameDomain(href, baseUrl string) bool {
 	return true
 }
 
+// fixes infinite loop
 func toFixedUrl(href, base string) string {
 	uri, err := url.Parse(href)
 	if err != nil || uri.Scheme == "mailto" || uri.Scheme == "tel" { // representation of url [scheme:][//[userinfo@]host][/]path[?query][#fragment]
